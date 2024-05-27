@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="light.css" id="cssFile">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div>
+        <h1>Game<span>Shop</span></h1>
+        <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
+        <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+        <div><input type="text" id="searchInput" placeholder="Поиск..."></div>
+    </header>
+    <main>
+        <div class="banner">
+            <div class="bg">
+                <video src="https://media.gamestop.com/v/gamestop/MIN_15Acquisition_USA_15s_VDG_NTF_EN_HOV_BN_NA_1_1/mp41080p" autoplay loop muted></video>
+            </div>
+            <div class="vid">
+                <video src="https://media.gamestop.com/v/gamestop/MIN_15Acquisition_USA_15s_VDG_NTF_EN_HOV_BN_NA_1_1/mp41080p" autoplay loop muted></video>
+            </div>
+        </div>
+        <h2>Добро пожаловать в GameShop!</h2>
+        <div style="width: 660px; display: flex; flex-wrap: wrap;">
+            <a href="catalog.html">
+                <div class="choose">
+                    <p>PlayStation</p>
+                    <img src="https://iclub-service.ru/wp-content/uploads/2021/11/playstation-5-with-dualsense-front-product-shot-01-ps5-en-30jul20.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="choose">
+                    <p>Xbox</p>
+                    <img src="https://assets.xboxservices.com/assets/0b/28/0b2854b9-a7e7-47dd-b4f8-a371567854b2.png?n=Xbox-Series-S_Buy-Box_0_01_829x799.png" alt="">
+                </div>
+            </a>
+            <a href="catalog.html#nintendo">
+                <div class="choose">
+                    <p style="margin: 16px 0px 2px 0px;">Nintendo<p>
+                    <img style="margin: 0px;" src="some website stuffs/115461-switch-oled-white-boxart-1200x675.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="choose">
+                    <p>Ретро консоли</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Wii_console.png/1200px-Wii_console.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="choose">
+                    <p>Контроллеры</p>
+                    <img src="https://cdn.cs.1worldsync.com/syndication/mediaserverredirect/0601e5db58aae832806b5c13f822d3a6/original.png" alt="">
+                </div>
+            </a>
+            <a href="">
+                <div class="choose">
+                    <p>Игры</p>
+                    <img src="https://i5.walmartimages.com/seo/Minecraft-Starter-Collection-PlayStation-4_abc13599-5dd8-4ae2-97fb-2f4a1c88d375_2.d4a0d3318a8bd70de9651e1b0133ace2.png" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="cardholder">
+            <a href=""><div class="card"></div>а у нс скидосы на контроллеры 10%</a>
+            <a href=""><div class="card"></div>о круто а у нас на игры 15%</a>
+        </div>
+    </main>
+    <p class="items"><span id="totalItemsCompact"> 0 </span></p>
+    <div id="basketContainer">
+        <div class="basket hidden" id="basket">
+            <h2 style="width: 40%; margin: 5px">Корзина</h2>
+            <p style="width: 40%; margin: 5px;">Товаров: <span id="totalItems">0</span></p>
+            <p style="width: 40%; margin: 5px;">Полная цена: $<span id="totalPrice">0.00</span></p>
+            <button style="margin: 5px;" onclick="removeAllFromBasket()">Убрать всё</button>
+            <div id="productListContainer">
+                <div id="productList"></div>
+                <div id="customScrollbar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="search" id="searchResultsContainer">
+        <ul id="searchResults"></ul>
+        <div id="customScrollbar"></div>
+    </div>
+    <!-- <div id="container">
+        <div id="element-4">Element 4</div>
+        <div id="element-2">Element 2</div>
+        <div id="element-3">Element 3</div>
+        <div id="element-1">Element 1</div>
+    </div>
+    <button onclick="sortElements()">Sort Elements by ID</button>
+    <div class="search" id="searchResultsContainer">
+        <ul id="searchResults"></ul>
+    </div> -->
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/0df576463f.js" crossorigin="anonymous"></script>
+</body>
+</html>
