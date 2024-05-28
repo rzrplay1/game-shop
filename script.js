@@ -16,6 +16,11 @@ function changeCSS() {
 // Корзина
 let totalPrice = 0;
 
+document.addEventListener('DOMContentLoaded', function() {
+    loadCart();
+    updateCustomScrollbar();
+});
+
 function addToBasket(productName, price) {
     var productList = document.getElementById("productList");
     var product = document.createElement("div");
@@ -24,11 +29,13 @@ function addToBasket(productName, price) {
     product.innerHTML = `
         <h3>${productName}</h3>
         <p class="product-price">Price: $${price.toFixed(2)}</p>
+        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <button class="removeBtn" onclick="removeFromBasket(this, ${price})">Remove</button>
     `;
 
     productList.appendChild(product);
     updateBasketState(price);
+    saveCart();
     updateCustomScrollbar();
 }
 
@@ -36,6 +43,7 @@ function removeFromBasket(button, price) {
     var productToRemove = button.parentElement;
     productToRemove.remove();
     updateBasketState(-price);
+    saveCart();
     updateCustomScrollbar();
 }
 
@@ -44,6 +52,7 @@ function removeAllFromBasket() {
     productList.innerHTML = '';
     totalPrice = 0;
     updateBasketState(0);
+    saveCart();
     updateCustomScrollbar();
 }
 
@@ -61,10 +70,8 @@ function updateBasketState(priceChange) {
 
 function updateTotalPrice(priceChange) {
     totalPrice += priceChange;
+    if (totalPrice < 0) totalPrice = 0;
     var totalPriceSpan = document.getElementById("totalPrice");
-    if (totalPrice<=0) {
-        totalPrice == 0
-    }
     totalPriceSpan.textContent = totalPrice.toFixed(2);
 }
 
@@ -98,10 +105,33 @@ function updateCustomScrollbar() {
     }
 }
 
-// Initialize custom scrollbar element
-document.addEventListener('DOMContentLoaded', function() {
-    updateCustomScrollbar();
-});
+// Save the cart state to local storage
+function saveCart() {
+    var products = [];
+    document.querySelectorAll('.product').forEach(product => {
+        var productName = product.querySelector('h3').textContent;
+        var productPrice = parseFloat(product.querySelector('.product-price').textContent.replace('Price: $', ''));
+        products.push({ name: productName, price: productPrice });
+    });
+
+    localStorage.setItem('cart', JSON.stringify({
+        products: products,
+        totalPrice: totalPrice
+    }));
+}
+
+// Load the cart state from local storage
+function loadCart() {
+    var cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart) {
+        cart.products.forEach(item => {
+            addToBasket(item.name, item.price);
+        });
+        totalPrice = cart.totalPrice;
+        updateTotalPrice(0); // To update the total price display
+        updateTotalItems(); // To update the total items display
+    }
+}
 
 
 

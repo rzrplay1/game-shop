@@ -10,11 +10,15 @@
 <body>
     <header>
         <div>
-        <h1>Game<span>Shop</span></h1>
-        <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
-        <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
-        </div>
-        <div><input type="text" id="searchInput" placeholder="Поиск..."></div>
+            <h1>Game<span>Shop</span></h1>
+            <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
+            <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            <div><input type="text" id="searchInput" placeholder="Поиск...">
+                <div class="search" id="searchResultsContainer">
+                <ul id="searchResults"></ul>
+                <div id="customScrollbar"></div>
+            </div></div>
     </header>
     <main>
         <div class="banner">
@@ -26,7 +30,7 @@
             </div>
         </div>
         <h2>Добро пожаловать в GameShop!</h2>
-        <div style="width: 660px; display: flex; flex-wrap: wrap;">
+        <div class="ccontainer">
             <a href="catalog.html">
                 <div class="choose">
                     <p>PlayStation</p>
@@ -65,11 +69,11 @@
             </a>
         </div>
         <div class="cardholder">
-            <a href=""><div class="card"></div>а у нс скидосы на контроллеры 10%</a>
-            <a href=""><div class="card"></div>о круто а у нас на игры 15%</a>
+            <a href=""><div class="card"><img style="border-radius: 12px; width: 400px;" src="https://media.gamestop.com/i/gamestop/20OffPOPS4XB1_WK17_856x480_2Up_Feature_D_1.webp" alt=""></div></a>
+            <a href=""><div class="card"><img style="border-radius: 12px; width: 400px;" src="https://media.gamestop.com/i/gamestop/B2G1FreePOGames_WK17_856x480_2Up_Feature_D_1.webp" alt=""></div></a>
         </div>
     </main>
-    <p class="items"><span id="totalItemsCompact"> 0 </span></p>
+    <!-- <p class="items"><span id="totalItemsCompact"> 0 </span></p> -->
     <div id="basketContainer">
         <div class="basket hidden" id="basket">
             <h2 style="width: 40%; margin: 5px">Корзина</h2>
@@ -82,10 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="search" id="searchResultsContainer">
-        <ul id="searchResults"></ul>
-        <div id="customScrollbar"></div>
-    </div>
+
     <!-- <div id="container">
         <div id="element-4">Element 4</div>
         <div id="element-2">Element 2</div>

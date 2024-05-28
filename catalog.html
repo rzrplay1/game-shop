@@ -9,11 +9,19 @@
 </head>
 <body>
     <header>
-        <a style="margin: 0px; color: black;" href="index.html"><h1>Game<span>Shop</span></h1></a>
-        <input autocomplete="off" type="text" id="searchInput" placeholder="Search...">
-        <button onclick="changeCSS()"><i class="fa-solid fa-moon"></i></button>
-        <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
-    </header>
+        <div>
+            <a href="index.html"><h1>Game<span>Shop</span></h1></a>
+            <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
+            <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            <div><input type="text" id="searchInput" placeholder="Поиск...">
+
+            </div>
+                        <div class="search" id="searchResultsContainer">
+                <ul id="searchResults"></ul>
+                <div id="customScrollbar"></div>
+                </div>
+        </header>
     <main>
         <div class="bar">
             <p>Save up to 25% with our promocode: WEREOPEN!</p>
@@ -177,7 +185,7 @@
         </div>
     </div>
     </main>
-    <p class="items"><span id="totalItemsCompact"> 0 </span></p>
+    <!-- <p class="items"><span id="totalItemsCompact"> 0 </span></p> -->
     <div id="basketContainer">
         <div class="basket hidden" id="basket">
             <h2 style="width: 40%; margin: 5px">Корзина</h2>
@@ -190,10 +198,10 @@
             </div>
         </div>
     </div>
-    <div class="search" id="searchResultsContainer">
+    <!-- <div class="search" id="searchResultsContainer">
         <ul id="searchResults"></ul>
         <div id="customScrollbar"></div>
-    </div>
+    </div> -->
     <script src="script.js"></script>
 </body>
 </html>
