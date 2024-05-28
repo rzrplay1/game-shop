@@ -8,17 +8,19 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- onclick="toggleBasket()" -->
     <header>
         <div>
             <h1>Game<span>Shop</span></h1>
             <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
-            <button onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+            <button id="toggleCartButton"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
             </div>
-            <div><input type="text" id="searchInput" placeholder="Поиск...">
+            <div>
+                <input type="text" id="searchInput" placeholder="Поиск...">
                 <div class="search" id="searchResultsContainer">
                 <ul id="searchResults"></ul>
-                <div id="customScrollbar"></div>
-            </div></div>
+                </div>
+            </div>
     </header>
     <main>
         <div class="banner">

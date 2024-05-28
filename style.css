@@ -2,12 +2,16 @@
 @media screen and (max-width: 834px) {
     .cardholder{
         flex-direction: column;
-
     }
     .cardholder a{
         display: flex;
         justify-content: center;
     }
+  }
+  @media screen and (max-width:469px) {
+    html, body {
+        overflow-x: hidden;
+        }
   }
   @media screen and (max-width: 588px) {
     #searchResultsContainer {
@@ -36,15 +40,12 @@
         
     }
 }
-
 .hidden { display: none; }
 body{
     font-family: "Nunito";
     font-weight: 600;
     margin: 0;
     transition: 0.5s;
-    overflow-x: hidden;
-    /* width: 200%; */
 }
 main{
     flex-direction: column;
@@ -61,7 +62,6 @@ header{
     position: sticky;
     transition: 0.5s;
     display: flex;
-    width: 99.5%;
 }
 header div{
     display: flex;
@@ -127,6 +127,7 @@ main h2{
     transition: 0.5s;
     width: 230px;
     padding-right: 10px;
+    display: none;
 }
 
 #searchResults {

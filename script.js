@@ -207,6 +207,7 @@ const data = [
 ];
 
 const searchInput = document.getElementById("searchInput");
+const searchResultsContainer = document.getElementById("searchResultsContainer");
 const searchResults = document.getElementById("searchResults");
 
 // Function to perform search and display results
@@ -225,6 +226,7 @@ function search() {
 // Function to clear search results
 function clearResults() {
     searchResults.innerHTML = "";
+    searchResultsContainer.style.display = 'none';
 }
 
 // Function to display search results
@@ -234,7 +236,6 @@ function displayResults(results) {
     if (results.length === 0) {
         const listItem = document.createElement("li");
         listItem.textContent = "No results found";
-
         searchResults.appendChild(listItem);
     } else {
         results.forEach(result => {
@@ -243,9 +244,28 @@ function displayResults(results) {
             searchResults.appendChild(listItem);
         });
     }
+
+    searchResultsContainer.style.display = results.length === 0 ? 'none' : 'block';
 }
-
-
 
 // Event listener for search input
 searchInput.addEventListener("input", search);
+
+// Show search results when the search input is clicked
+searchInput.addEventListener("focus", () => {
+    if (searchResults.innerHTML.trim() !== "") {
+        searchResultsContainer.style.display = 'block';
+    }
+});
+
+// Hide search results when clicking outside
+document.addEventListener("click", (event) => {
+    if (!searchResultsContainer.contains(event.target) && !searchInput.contains(event.target)) {
+        searchResultsContainer.style.display = 'none';
+    }
+});
+
+// Prevent hiding search results when clicking inside the container
+searchResultsContainer.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
