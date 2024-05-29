@@ -89,10 +89,16 @@ function updateTotalPrice(priceChange) {
 
 function updateTotalItems() {
     var totalItemsSpan = document.getElementById("totalItems");
+    var totalItemsCompactSpan = document.getElementById("totalItemsCompact");
 
     var products = document.querySelectorAll(".product");
     var totalItems = products.length;
     totalItemsSpan.textContent = totalItems;
+    totalItemsCompactSpan.textContent = totalItems > 9 ? '9+' : totalItems;
+
+    if (totalItems === 0) {
+        document.getElementById("cart").classList.add("hidden");
+    }
 }
 
 function updateCustomScrollbar() {
@@ -184,119 +190,121 @@ function sortElements() {
         container.appendChild(element);
     });
 }
-        const data = [
-            "Nintendo Gameboy Advanced SP",
-            "Nintendo DS Lite",
-            "New Nintendo 3DS",
-            "New Nintendo 3DS XL",
-            "New Nintendo 2DS XL",
-            "Nintendo Wii",
-            "Nintendo Wii U",
-            "Nintendo Gamecube",
-            "Nintendo N64",
-            "Nintendo SNES",
-            "Nintendo NES",
-            "PlayStation Portal",
-            "PlayStation 5",
-            "PlayStation 4",
-            "PlayStation 3",
-            "PlayStation 2",
-            "PlayStation Classic",
-            "PlayStation Portable",
-            "PlayStation Vita",
-            "Xbox Original",
-            "Xbox 360",
-            "Xbox One",
-            "Xbox One S",
-            "Xbox One X",
-            "Joy-Con",
-            "Switch Pro Controller",
-            "Xbox Series S/X Controller",
-            "Xbox Elite Series 2",
-            "DualShock",
-            "DualShock 2",
-            "DualShock 3",
-            "DualShock 4",
-            "DualSense Edge",
-            "DualSense 5",
-            "NES Controller",
-            "SNES Controller",
-            "N64 Controller",
-            "Gamecube Controller",
-            "Wii Remote",
-            "Wii U GamePad",
-            "Wii U Pro Controller",
-            "Xbox Original Controller",
-            "Xbox 360 Controller",
-            "Xbox One Controller",
-            "Xbox One S/X Controller",
-            "Nintendo Switch Oled",
-            "Nintendo Switch Lite",
-            "Nintendo Switch Rev.2",
-            "Xbox Series S",
-            "Xbox Series X"
-        ];
+const data = [
+    { name: "Nintendo Switch Oled", id: "nso" },
+    { name: "Nintendo Switch Lite", id: "nsl" },
+    { name: "Nintendo Switch Rev.2", id: "nsr2" },
+    { name: "Xbox Series S", id: "xbss" },
+    { name: "Xbox Series X", id: "xbsx" },
+    { name: "PlayStation 5", id: "ps5" },
+    { name: "Nintendo Gameboy Advanced SP", id: "gba" },
+    { name: "Nintendo DS Lite", id: "dsl" },
+    { name: "Nintendo 3DS", id: "3ds" },
+    { name: "New Nintendo 3DS XL", id: "3dsxl" },
+    { name: "New Nintendo 2DS XL", id: "2dsxl" },
+    { name: "Nintendo Wii", id: "wii" },
+    { name: "Nintendo Wii U", id: "wiiu" },
+    { name: "Nintendo Gamecube", id: "gcn" },
+    { name: "Nintendo N64", id: "n64" },
+    { name: "Nintendo SNES", id: "snes" },
+    { name: "Nintendo NES", id: "nes" },
+    { name: "PlayStation 4", id: "ps4" },
+    { name: "PlayStation 3", id: "ps3" },
+    { name: "PlayStation 2", id: "ps2" },
+    { name: "PlayStation 1", id: "ps1" },
+    { name: "PlayStation Portable", id: "psp" },
+    { name: "PlayStation Vita", id: "psv" },
+    { name: "Xbox Original", id: "xbox" },
+    { name: "Xbox 360", id: "xb360" },
+    { name: "Xbox One", id: "xbone" },
+    { name: "Xbox One S", id: "xbones" },
+    { name: "Xbox One X", id: "xbonex" },
+    { name: "DualSense Edge", id: "dsedge" },
+    { name: "DualSense 5", id: "dsense" },
+    { name: "PlayStation Portal", id: "psportal" },
+    { name: "Joy-Con", id: "jcon" },
+    { name: "Switch Pro Controller", id: "swpcont" },
+    { name: "Xbox Series S/X Controller", id: "xbscont" },
+    { name: "Xbox Elite Series 2", id: "xbe2" },
+    { name: "DualShock 1", id: "dshock1" },
+    { name: "DualShock 2", id: "dshock2" },
+    { name: "DualShock 3", id: "dshock3" },
+    { name: "DualShock 4", id: "dshock4" },
+    { name: "NES Controller", id: "nescont" },
+    { name: "SNES Controller", id: "snescont" },
+    { name: "N64 Controller", id: "n64cont" },
+    { name: "Gamecube Controller", id: "gcncont" },
+    { name: "Wii Remote", id: "wiirem" },
+    { name: "Wii U Pro Controller", id: "wiiupcont" },
+    { name: "Xbox Original Controller", id: "xboxcont" },
+    { name: "Xbox 360 Controller", id: "xb360cont" },
+    { name: "Xbox One Controller", id: "xbonecont" },
+    { name: "Xbox One S/X Controller", id: "xbonescont" }
+];
 
-        const searchInput = document.getElementById("searchInput");
-        const searchResultsContainer = document.getElementById("searchResultsContainer");
-        const searchResults = document.getElementById("searchResults");
+const searchInput = document.getElementById("searchInput");
+const searchResultsContainer = document.getElementById("searchResultsContainer");
+const searchResults = document.getElementById("searchResults");
 
-        // Function to perform search and display results
-        function search() {
-            const searchTerm = searchInput.value.toLowerCase();
-            
-            if (searchTerm.trim() === "") {
-                clearResults();
-                return;
-            }
-            
-            const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
-            displayResults(filteredData);
-        }
+// Function to perform search and display results
+function search() {
+    const searchTerm = searchInput.value.toLowerCase();
 
-        // Function to clear search results
-        function clearResults() {
-            searchResults.innerHTML = "";
-            searchResultsContainer.style.display = 'none';
-        }
+    if (searchTerm.trim() === "") {
+        clearResults();
+        return;
+    }
 
-        // Function to display search results
-        function displayResults(results) {
-            searchResults.innerHTML = "";
+    const filteredData = data.filter(item => item.name.toLowerCase().includes(searchTerm));
+    displayResults(filteredData);
+}
 
-            if (results.length === 0) {
-                const listItem = document.createElement("li");
-                listItem.textContent = "No results found";
-                searchResults.appendChild(listItem);
-            } else {
-                results.forEach(result => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = result;
-                    searchResults.appendChild(listItem);
-                });
-            }
+// Function to clear search results
+function clearResults() {
+    searchResults.innerHTML = "";
+    searchResultsContainer.style.display = 'none';
+}
 
-            searchResultsContainer.style.display = results.length === 0 ? 'none' : 'block';
-        }
+// Function to display search results
+function displayResults(results) {
+    searchResults.innerHTML = "";
 
-        // Event listener for search input
-        searchInput.addEventListener("input", search);
-
-        // Show search results when the search input is clicked
-        searchInput.addEventListener("focus", () => {
-            if (searchResults.innerHTML.trim() !== "") {
-                searchResultsContainer.style.display = 'block';
-            }
+    if (results.length === 0) {
+        const listItem = document.createElement("li");
+        listItem.textContent = "No results found";
+        searchResults.appendChild(listItem);
+    } else {
+        results.forEach(result => {
+            const listItem = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = `catalog.html#${result.id}`;
+            link.textContent = result.name;
+            listItem.appendChild(link);
+            searchResults.appendChild(listItem);
         });
+    }
 
-        // Hide search results when clicking outside
-        document.addEventListener("click", (event) => {
-            if (!searchResultsContainer.contains(event.target) && !searchInput.contains(event.target)) {
-                searchResultsContainer.style.display = 'none';
-            }
-        });
+    searchResultsContainer.style.display = results.length === 0 ? 'none' : 'block';
+}
 
-        // Prevent hiding search results when clicking inside the container
-        searchResultsContainer.addEventListener("click", (event) => {
-            event.stopPropagation();
-        });
+// Event listener for search input
+searchInput.addEventListener("input", search);
+
+// Show search results when the search input is clicked
+searchInput.addEventListener("focus", () => {
+    if (searchResults.innerHTML.trim() !== "") {
+        searchResultsContainer.style.display = 'block';
+    }
+});
+
+// Hide search results when clicking outside
+document.addEventListener("click", (event) => {
+    if (!searchResultsContainer.contains(event.target) && !searchInput.contains(event.target)) {
+        searchResultsContainer.style.display = 'none';
+    }
+});
+
+// Prevent hiding search results when clicking inside the container
+searchResultsContainer.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
