@@ -32,12 +32,37 @@
         height: 73% !important;
     }
     .card{
-        width: 80% !important;
+        width: 100% !important;
         height: auto !important;
     }
     .cardholder a img{
-        width: 100% !important;
+        width: 100% !important;   
+    }
+}
+@media screen and (max-width: 768px) {
+    #cart{
+        margin: 5px !important;
+    }
+    #basketContainer{
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto!important;
+    }
+    .basket{
+        width: 101% !important;
+        height: 440px !important;
         
+    }
+    #productListContainer{
+        height: 440px !important;
+        width: 86% !important;
+    }
+    .things{
+        width: 95% !important;
+        margin: 15px;
+    }
+    #productList{
+        height: 440px !important;
     }
 }
 .hidden { display: none; }
@@ -69,6 +94,7 @@ header div{
 }
 h1{
     margin: 15px;
+    width: fit-content;
 }
 h1 span{
     color: rgb(232, 46, 46);
@@ -84,15 +110,41 @@ button{
     font-weight: 600;
     transition: 0.3s;
 }
+header .btn{
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    font-family: "Nunito";
+    border: 3px solid rgb(232, 46, 46);
+    border-radius: 12px;
+    font-size: medium;
+    font-weight: 600;
+    transition: 0.3s;
+    width: 25.2px;
+    height: 25.2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+header .btn i{
+    position: relative;
+    top: 22px;
+    left: 0px;
+}
 header button{
     width: 50px;
     height: 50px;
 }
-header button:hover{
+button:hover{
+    transform: scale(110%);
+}
+header .btn:hover{
     transform: scale(110%);
 }
 header a{
     margin: 0;
+    width: fit-content;
 }
 .choose{
     width: 200px;
@@ -207,30 +259,52 @@ header input{
     justify-content: center;
 }
 .items{
-    position: absolute;
-    top: 0px;
-    left: 680px;
+    font-size: small;
+    font-weight: 100;
+    color: white;
+    position: relative;
+    top: -50px;
+    left: 20px;
     background-color: rgb(232, 46, 46);
     border-radius: 100%;
     width: 20px;
-    text-align: center;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .basket{
-    border: 3px solid rgb(232, 46, 46);
+    /* border: 3px solid rgb(232, 46, 46);
     width: 400px; 
     border-radius: 12px;
     padding: 10px;
     position: absolute;
-    top: 70px; left: 270px;
     background-color: white;
     height: 530px;
     overflow-y:visible;
     scrollbar-width: none;
     transition: 0.5s;
-    z-index: 100;
+    z-index: 100; */
+    display: flex;
+    width: 60%;
+    border: 3px solid rgb(232, 46, 46);
+    border-radius: 12px;
+    margin: 0px 10px;
+    background-color: white;
+    transition: 0.5s;
+}
+#basketContainer{
+    margin: 1%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px;
+    height: 500px;
+    justify-content: center;
 }
 .product{
-    margin: 5px;
+    margin: 10px;
+    text-align: left;
 }
 .removeBtn{
     margin: 0px;
@@ -248,19 +322,20 @@ header input{
     cursor: pointer;
 }
 #productList {
-    max-height: 350px;
+    height: 500px;
     overflow-y: scroll;
     padding-right: 20px; /* Space for the custom scrollbar */
     scrollbar-width: none;
-
+    height: 500px;
+    width: 90%;
 }
 #productListContainer {
     position: absolute;
-    height: auto; 
     overflow-y: scroll;
-    max-height: 400px;
+    height: 495px;
     scrollbar-width: none;
     padding-right: 20px;
+    width:53%;
 }
 #productList::-webkit-scrollbar-button {
     display: none;
@@ -362,4 +437,28 @@ header input{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+.things{
+    padding: 10px;
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    border: 3px solid rgb(232, 46, 46);
+    background-color: white;
+    transition: 0.5s;
+}
+.promocode{
+    border: 3px solid rgb(232, 46, 46);
+    border-radius: 12px;
+    height: 40px;
+    font-weight: 600;
+    font-family: "Nunito";
+    outline: 0;
+    transition: 0.5s;
+    padding: 0px 7px;
+    width: 106.2px;
+}
+.promo-code-section{
+    display: flex;
+    align-items: center;
 }

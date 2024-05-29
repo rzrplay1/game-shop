@@ -15,6 +15,12 @@ function changeCSS() {
 
 // Корзина
 let totalPrice = 0;
+let promoCodes = {
+    "WEREOPEN": 20,       // 20% discount
+    "YOUFOUNDME!": 10,    // 10% discount
+    "RZRPLAY": 99         // 99% discount
+};
+let appliedPromo = null;
 
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
@@ -29,7 +35,6 @@ function addToBasket(productName, price) {
     product.innerHTML = `
         <h3>${productName}</h3>
         <p class="product-price">Price: $${price.toFixed(2)}</p>
-        <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <button class="removeBtn" onclick="removeFromBasket(this, ${price})">Remove</button>
     `;
 
@@ -71,18 +76,23 @@ function updateBasketState(priceChange) {
 function updateTotalPrice(priceChange) {
     totalPrice += priceChange;
     if (totalPrice < 0) totalPrice = 0;
+
+    let finalPrice = totalPrice;
+    if (appliedPromo && promoCodes[appliedPromo]) {
+        let discount = promoCodes[appliedPromo];
+        finalPrice = totalPrice - (totalPrice * discount / 100);
+    }
+
     var totalPriceSpan = document.getElementById("totalPrice");
-    totalPriceSpan.textContent = totalPrice.toFixed(2);
+    totalPriceSpan.textContent = finalPrice.toFixed(2);
 }
 
 function updateTotalItems() {
     var totalItemsSpan = document.getElementById("totalItems");
-    var totalItemsCompactSpan = document.getElementById("totalItemsCompact");
 
     var products = document.querySelectorAll(".product");
     var totalItems = products.length;
     totalItemsSpan.textContent = totalItems;
-    totalItemsCompactSpan.textContent = totalItems > 9 ? '9+' : totalItems;
 }
 
 function updateCustomScrollbar() {
@@ -105,6 +115,21 @@ function updateCustomScrollbar() {
     }
 }
 
+function applyPromoCode() {
+    let promoCodeInput = document.getElementById("promoCodeInput").value.trim().toUpperCase();
+    let messageElement = document.getElementById("promoCodeMessage");
+
+    if (promoCodes[promoCodeInput]) {
+        appliedPromo = promoCodeInput;
+        messageElement.textContent = `Promo code applied: ${promoCodeInput}`;
+        updateTotalPrice(0);  // Recalculate the total price with the promo code
+    } else {
+        messageElement.textContent = "Invalid promo code";
+        appliedPromo = null;
+    }
+    saveCart();
+}
+
 // Save the cart state to local storage
 function saveCart() {
     var products = [];
@@ -116,7 +141,8 @@ function saveCart() {
 
     localStorage.setItem('cart', JSON.stringify({
         products: products,
-        totalPrice: totalPrice
+        totalPrice: totalPrice,
+        appliedPromo: appliedPromo
     }));
 }
 
@@ -128,8 +154,13 @@ function loadCart() {
             addToBasket(item.name, item.price);
         });
         totalPrice = cart.totalPrice;
-        updateTotalPrice(0); // To update the total price display
-        updateTotalItems(); // To update the total items display
+        appliedPromo = cart.appliedPromo;
+        if (appliedPromo) {
+            document.getElementById("promoCodeInput").value = appliedPromo;
+            document.getElementById("promoCodeMessage").textContent = `Promo code applied: ${appliedPromo}`;
+        }
+        updateTotalPrice(0);  // To update the total price display
+        updateTotalItems();   // To update the total items display
     }
 }
 
@@ -153,119 +184,119 @@ function sortElements() {
         container.appendChild(element);
     });
 }
-const data = [
-    "Nintendo Gameboy Advanced SP",
-    "Nintendo DS Lite",
-    "New Nintendo 3DS",
-    "New Nintendo 3DS XL",
-    "New Nintendo 2DS XL",
-    "Nintendo Wii",
-    "Nintendo Wii U",
-    "Nintendo Gamecube",
-    "Nintendo N64",
-    "Nintendo SNES",
-    "Nintendo NES",
-    "PlayStation Portal",
-    "PlayStation 5",
-    "PlayStation 4",
-    "PlayStation 3",
-    "PlayStation 2",
-    "PlayStation Classic",
-    "PlayStation Portable",
-    "PlayStation Vita",
-    "Xbox Original",
-    "Xbox 360",
-    "Xbox One",
-    "Xbox One S",
-    "Xbox One X",
-    "Joy-Con",
-    "Switch Pro Controller",
-    "Xbox Series S/X Controller",
-    "Xbox Elite Series 2",
-    "DualShock",
-    "DualShock 2",
-    "DualShock 3",
-    "DualShock 4",
-    "DualSense Edge",
-    "DualSense 5",
-    "NES Controller",
-    "SNES Controller",
-    "N64 Controller",
-    "Gamecube Controller",
-    "Wii Remote",
-    "Wii U GamePad",
-    "Wii U Pro Controller",
-    "Xbox Original Controller",
-    "Xbox 360 Controller",
-    "Xbox One Controller",
-    "Xbox One S/X Controller",
-    "Nintendo Switch Oled",
-    "Nintendo Switch Lite",
-    "Nintendo Switch Rev.2",
-    "Xbox Series S",
-    "Xbox Series X"
-];
+        const data = [
+            "Nintendo Gameboy Advanced SP",
+            "Nintendo DS Lite",
+            "New Nintendo 3DS",
+            "New Nintendo 3DS XL",
+            "New Nintendo 2DS XL",
+            "Nintendo Wii",
+            "Nintendo Wii U",
+            "Nintendo Gamecube",
+            "Nintendo N64",
+            "Nintendo SNES",
+            "Nintendo NES",
+            "PlayStation Portal",
+            "PlayStation 5",
+            "PlayStation 4",
+            "PlayStation 3",
+            "PlayStation 2",
+            "PlayStation Classic",
+            "PlayStation Portable",
+            "PlayStation Vita",
+            "Xbox Original",
+            "Xbox 360",
+            "Xbox One",
+            "Xbox One S",
+            "Xbox One X",
+            "Joy-Con",
+            "Switch Pro Controller",
+            "Xbox Series S/X Controller",
+            "Xbox Elite Series 2",
+            "DualShock",
+            "DualShock 2",
+            "DualShock 3",
+            "DualShock 4",
+            "DualSense Edge",
+            "DualSense 5",
+            "NES Controller",
+            "SNES Controller",
+            "N64 Controller",
+            "Gamecube Controller",
+            "Wii Remote",
+            "Wii U GamePad",
+            "Wii U Pro Controller",
+            "Xbox Original Controller",
+            "Xbox 360 Controller",
+            "Xbox One Controller",
+            "Xbox One S/X Controller",
+            "Nintendo Switch Oled",
+            "Nintendo Switch Lite",
+            "Nintendo Switch Rev.2",
+            "Xbox Series S",
+            "Xbox Series X"
+        ];
 
-const searchInput = document.getElementById("searchInput");
-const searchResultsContainer = document.getElementById("searchResultsContainer");
-const searchResults = document.getElementById("searchResults");
+        const searchInput = document.getElementById("searchInput");
+        const searchResultsContainer = document.getElementById("searchResultsContainer");
+        const searchResults = document.getElementById("searchResults");
 
-// Function to perform search and display results
-function search() {
-    const searchTerm = searchInput.value.toLowerCase();
-    
-    if (searchTerm.trim() === "") {
-        clearResults();
-        return;
-    }
-    
-    const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
-    displayResults(filteredData);
-}
+        // Function to perform search and display results
+        function search() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            if (searchTerm.trim() === "") {
+                clearResults();
+                return;
+            }
+            
+            const filteredData = data.filter(item => item.toLowerCase().includes(searchTerm));
+            displayResults(filteredData);
+        }
 
-// Function to clear search results
-function clearResults() {
-    searchResults.innerHTML = "";
-    searchResultsContainer.style.display = 'none';
-}
+        // Function to clear search results
+        function clearResults() {
+            searchResults.innerHTML = "";
+            searchResultsContainer.style.display = 'none';
+        }
 
-// Function to display search results
-function displayResults(results) {
-    searchResults.innerHTML = "";
+        // Function to display search results
+        function displayResults(results) {
+            searchResults.innerHTML = "";
 
-    if (results.length === 0) {
-        const listItem = document.createElement("li");
-        listItem.textContent = "No results found";
-        searchResults.appendChild(listItem);
-    } else {
-        results.forEach(result => {
-            const listItem = document.createElement("li");
-            listItem.textContent = result;
-            searchResults.appendChild(listItem);
+            if (results.length === 0) {
+                const listItem = document.createElement("li");
+                listItem.textContent = "No results found";
+                searchResults.appendChild(listItem);
+            } else {
+                results.forEach(result => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = result;
+                    searchResults.appendChild(listItem);
+                });
+            }
+
+            searchResultsContainer.style.display = results.length === 0 ? 'none' : 'block';
+        }
+
+        // Event listener for search input
+        searchInput.addEventListener("input", search);
+
+        // Show search results when the search input is clicked
+        searchInput.addEventListener("focus", () => {
+            if (searchResults.innerHTML.trim() !== "") {
+                searchResultsContainer.style.display = 'block';
+            }
         });
-    }
 
-    searchResultsContainer.style.display = results.length === 0 ? 'none' : 'block';
-}
+        // Hide search results when clicking outside
+        document.addEventListener("click", (event) => {
+            if (!searchResultsContainer.contains(event.target) && !searchInput.contains(event.target)) {
+                searchResultsContainer.style.display = 'none';
+            }
+        });
 
-// Event listener for search input
-searchInput.addEventListener("input", search);
-
-// Show search results when the search input is clicked
-searchInput.addEventListener("focus", () => {
-    if (searchResults.innerHTML.trim() !== "") {
-        searchResultsContainer.style.display = 'block';
-    }
-});
-
-// Hide search results when clicking outside
-document.addEventListener("click", (event) => {
-    if (!searchResultsContainer.contains(event.target) && !searchInput.contains(event.target)) {
-        searchResultsContainer.style.display = 'none';
-    }
-});
-
-// Prevent hiding search results when clicking inside the container
-searchResultsContainer.addEventListener("click", (event) => {
-    event.stopPropagation();
-});
+        // Prevent hiding search results when clicking inside the container
+        searchResultsContainer.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });

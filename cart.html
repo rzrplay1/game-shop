@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="light.css" id="cssFile">
+    <title>GameShop</title>
+</head>
+<body>
+    <!-- onclick="toggleBasket()" -->
+    <header>
+        <div>
+            <a href="index.html"><h1>Game<span>Shop</span></h1></a>
+            <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
+            <a class="btn" href="cart.html"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"><p class="items"><span id="totalItemsCompact"> 0 </span></p></i></a>
+        </div>
+            <div>
+                <input type="text" id="searchInput" placeholder="Поиск...">
+                <div class="search" id="searchResultsContainer">
+                <ul id="searchResults"></ul>
+                </div>
+            </div>
+    </header>
+    <main>
+        <h2 id="cart" style="width: auto; margin: 15px">Корзина</h2>
+        <div id="basketContainer">
+            
+            <!-- <div style="width: 70%; height: 500px;"></div> -->
+            <div class="basket" id="basket">
+                <div id="productListContainer">
+                    <div id="productList"></div>
+                    <div id="customScrollbar"></div>
+                </div>
+                <div style="height: 12px; width: 100%;"></div>
+            </div>
+                <div class="things">
+                    <div></div>
+                    <h3 style="width: 100%; margin: 5px;">Товаров: <span id="totalItems">0</span></h3>
+                    <h3 style="width: 100%; margin: 5px;">Полная цена: $<span id="totalPrice">0.00</span></h3>
+                    <button style="margin: 5px;" onclick="removeAllFromBasket()">Убрать всё</button>
+                    <div class="promo-code-section">
+                    <input style="width: 50%;" class="promocode" type="text" id="promoCodeInput" placeholder="Промокод">
+                    <button style="width: 50%;" onclick="applyPromoCode()">Применить</button>
+                    
+                    </div><p id="promoCodeMessage"></p>
+                </div>
+
+
+    </main>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/0df576463f.js" crossorigin="anonymous"></script>
+</body>
+</html>

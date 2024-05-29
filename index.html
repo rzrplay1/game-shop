@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="light.css" id="cssFile">
-    <title>Document</title>
+    <title>GameShop</title>
 </head>
 <body>
     <!-- onclick="toggleBasket()" -->
@@ -13,7 +13,7 @@
         <div>
             <h1>Game<span>Shop</span></h1>
             <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
-            <button id="toggleCartButton"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+            <a class="btn" href="cart.html"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"><p class="items"><span id="totalItemsCompact"> 0 </span></p></i></a>
             </div>
             <div>
                 <input type="text" id="searchInput" placeholder="Поиск...">
@@ -75,19 +75,6 @@
             <a href=""><div class="card"><img style="border-radius: 12px; width: 400px;" src="https://media.gamestop.com/i/gamestop/B2G1FreePOGames_WK17_856x480_2Up_Feature_D_1.webp" alt=""></div></a>
         </div>
     </main>
-    <!-- <p class="items"><span id="totalItemsCompact"> 0 </span></p> -->
-    <div id="basketContainer">
-        <div class="basket hidden" id="basket">
-            <h2 style="width: 40%; margin: 5px">Корзина</h2>
-            <p style="width: 40%; margin: 5px;">Товаров: <span id="totalItems">0</span></p>
-            <p style="width: 40%; margin: 5px;">Полная цена: $<span id="totalPrice">0.00</span></p>
-            <button style="margin: 5px;" onclick="removeAllFromBasket()">Убрать всё</button>
-            <div id="productListContainer">
-                <div id="productList"></div>
-                <div id="customScrollbar"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- <div id="container">
         <div id="element-4">Element 4</div>

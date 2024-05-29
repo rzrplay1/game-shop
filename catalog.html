@@ -12,12 +12,12 @@
         <div>
             <a href="index.html"><h1>Game<span>Shop</span></h1></a>
             <button onclick="changeCSS()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-moon"></i></button>
-            <button id="toggleCartButton" onclick="toggleBasket()"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"></i></button>
+            <a class="btn" href="cart.html"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"><p class="items"><span id="totalItemsCompact"> 0 </span></p></i></a>
             </div>
             <div><input type="text" id="searchInput" placeholder="Поиск...">
 
             </div>
-                        <div class="search" id="searchResultsContainer">
+            <div class="search" id="searchResultsContainer">
                 <ul id="searchResults"></ul>
                 <div id="customScrollbar"></div>
                 </div>
@@ -35,17 +35,17 @@
                 <h3>PlayStation 5</h3>
                 <div style="display: flex;">
                 <h3 class="price">$399.99</h3>
-                <button onclick="addToBasket('PlayStation 5', 399.99)" class="addtocart">В Корзину</button>
+                <button onclick="addToBasket('PlayStation 5', 399.99, 'белоеяблоко.рф/upload/iblock/618/wb0skcpl8cp9ykqt9s7pf3lc9djgd645.png')" class="addtocart">В Корзину</button>
                 </div>
             </div>
             </div>
             <div class="listing" id="ps4">
-                <img style="width: 220px; height: 210px; margin:auto;" src="https://portjefflibrary.org/wp-content/uploads/2015/11/ps4-png-ps4-png-900.png" alt="">
-                <div>   
+                <div>                   <img style="width: 220px; height: 210px; margin:auto;" src="https://portjefflibrary.org/wp-content/uploads/2015/11/ps4-png-ps4-png-900.png" alt="">
+
                     <h3>PlayStation 4</h3>
                     <div style="display: flex;">
                     <h3 class="price">$149.99</h3>
-                    <button onclick="addToBasket('PlayStation 4', 149.99)" class="addtocart">В Корзину</button>
+                    <button onclick="addToBasket('PlayStation 4', 149.99, 'portjefflibrary.org/wp-content/uploads/2015/11/ps4-png-ps4-png-900.png')" class="addtocart">В Корзину</button>
                 </div>
             </div>
             </div>
@@ -132,7 +132,7 @@
                 </div>
                 </div>
             </div>
-            <div class="listing" id="nwu">
+            <div class="listing" id="wiiu">
                 <img style="width: 250px; height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Wii_U_Console_and_Gamepad.png/1024px-Wii_U_Console_and_Gamepad.png" alt="">
                 <div>
                 <h3>Nintendo Wii U</h3>
@@ -142,7 +142,7 @@
                 </div>
                 </div>
             </div>
-            <div class="listing" id="nw">
+            <div class="listing" id="wii">
                 <img style="width: 200px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Wii_console.png/1200px-Wii_console.png" alt="">
                 <div>
                 <h3>Nintendo Wii</h3>
@@ -162,7 +162,7 @@
                 </div>
                 </div>
             </div>
-            <div class="listing" id="ngc">
+            <div class="listing" id="n64">
                 <img style="width: 240px;height: auto; margin: auto 0px;" src="https://dodo.ac/np/images/thumb/8/8d/Nintendo_64.png/1200px-Nintendo_64.png" alt="">
                 <div>
                 <h3>Nintendo 64</h3>
@@ -172,20 +172,83 @@
                 </div>
                 </div>
             </div>
-            <div class="listing" id="ngc">
+            <div class="listing" id="snes">
                 <img style="width: 250px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/3/36/SNES-Mod1-Console-Set.png" alt="">
                 <div>
                 <h3>Super Nintendo Entertainment System (SNES)</h3>
-                <div style="display: flex;">
+                <div style="display: flex; justify-content: center;">
                 <h3 class="price">$169.99</h3>
                 <button onclick="addToBasket('Super Nintendo Entertainment System', 169.99)" class="addtocart">В Корзину</button>
                 </div>
                 </div>
             </div>
+            <div class="listing" id="nes">
+                <img style="width: 250px;height: auto; margin: auto 0px;" src="some website stuffs/nes.png" alt="">
+                <div>
+                <h3>Nintendo Entertainment System (NES)</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$279.99</h3>
+                <button onclick="addToBasket('Nintendo Entertainment System', 279.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="gba">
+                <img style="width: 200px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Game-Boy-Advance-SP-Mk1-Blue.png/2032px-Game-Boy-Advance-SP-Mk1-Blue.png" alt="">
+                <div>
+                <h3>Nintendo Gameboy Advanced SP</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$79.99</h3>
+                <button onclick="addToBasket('Nintendo Gameboy Advanced SP', 29.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="dsl">
+                <img style="width: 240px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Nintendo-DS-Lite-Black-Open.png/711px-Nintendo-DS-Lite-Black-Open.png" alt="">
+                <div>
+                <h3>Nintendo DS Lite</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$49.99</h3>
+                <button onclick="addToBasket('Nintendo DS Lite', 49.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="3ds">
+                <img style="width: 240px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Nintendo-3DS-AquaOpen.png/663px-Nintendo-3DS-AquaOpen.png" alt="">
+                <div>
+                <h3>Nintendo 3DS</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$74.99</h3>
+                <button onclick="addToBasket('Nintendo 3DS', 74.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="3dsxl">
+                <img style="width: 240px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Nintendo-3DS-XL-angled.png/1280px-Nintendo-3DS-XL-angled.png" alt="">
+                <div>
+                <h3>New Nintendo 3DS XL</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$149.99</h3>
+                <button onclick="addToBasket('New Nintendo 3DS XL', 149.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="2dsxl">
+                <img style="width: 370px;height: auto; margin: auto 0px;" src="some website stuffs/2ds.png" alt="">
+                <div>
+                <h3>New Nintendo 2DS XL</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$129.99</h3>
+                <button onclick="addToBasket('New Nintendo 2DS XL', 129.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <h2 id="xbox">Xbox</h2>
+        <div class="brand">
+
         </div>
     </div>
     </main>
-    <!-- <p class="items"><span id="totalItemsCompact"> 0 </span></p> -->
     <div id="basketContainer">
         <div class="basket hidden" id="basket">
             <h2 style="width: 40%; margin: 5px">Корзина</h2>
