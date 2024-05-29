@@ -15,16 +15,15 @@
             <a class="btn" href="cart.html"><i style="color: rgb(201, 0, 0); font-size:17.5px;" class="fa-solid fa-cart-shopping"><p class="items"><span id="totalItemsCompact"> 0 </span></p></i></a>
             </div>
             <div><input type="text" id="searchInput" placeholder="Поиск...">
-
             </div>
             <div class="search" id="searchResultsContainer">
                 <ul id="searchResults"></ul>
                 <div id="customScrollbar"></div>
-                </div>
+            </div>
         </header>
     <main>
         <div class="bar">
-            <p>Save up to 25% with our promocode: WEREOPEN!</p>
+            <p>Сэкономьте до 15% от полной цены по промокоду: WEREOPEN!</p>
         </div>
     <div class="container">
         <h2 id="sony">PlayStation</h2>
@@ -245,11 +244,293 @@
         </div>
         <h2 id="xbox">Xbox</h2>
         <div class="brand">
-
+            <div class="listing" id="xbox">
+                <img style="width: 240px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Xbox-Console-Set.png" alt="">
+                <div>
+                <h3>Xbox Original</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$229.99</h3>
+                <button onclick="addToBasket('Xbox Original', 229.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="xb360">
+                <img style="width: 160px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Xbox-360S-Console-Set.png/1200px-Xbox-360S-Console-Set.png" alt="">
+                <div>
+                <h3>Xbox 360</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$299.99</h3>
+                <button onclick="addToBasket('Xbox 360', 299.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+            <div class="listing" id="xbone">
+                <img style="width: 260px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Microsoft-Xbox-One-Console-wKinect.png/2560px-Microsoft-Xbox-One-Console-wKinect.png" alt="">
+                <div>
+                <h3>Xbox One</h3>
+                <div style="display: flex; justify-content: center;">
+                <h3 class="price">$349.99</h3>
+                <button onclick="addToBasket('Xbox One', 349.99)" class="addtocart">В Корзину</button>
+                </div>
+                </div>
+            </div>
+        <div class="listing" id="xbonex">
+            <img style="width: 240px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Microsoft-Xbox-One-X-Console.png" alt="">
+            <div>
+            <h3>Xbox One X</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$539.99</h3>
+            <button onclick="addToBasket('Xbox One X', 539.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbones">
+            <img style="width: 280px;height: auto; margin: auto 0px;" src="https://news.xbox.com/wp-content/uploads/sites/2/XboxOneS_CnsleCntrllr_Hrz_FrntTlt_TransBG_RGB-1.png" alt="">
+            <div>
+            <h3>Xbox One S</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$379.99</h3>
+            <button onclick="addToBasket('Xbox One S', 379.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+            <div class="listing" id="xbsx">
+            <img style="width: 280px;height: auto; margin: auto 0px;" src="https://pngimg.com/d/xbox_PNG101377.png" alt="">
+            <div>
+            <h3>Xbox Series X</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$499.99</h3>
+            <button onclick="addToBasket('Xbox Series X', 499.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbss">
+            <img style="width: 280px;height: auto; margin: auto 0px;" src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4FkjX?ver=c092" alt="">
+            <div>
+            <h3>Xbox Series S</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$299.99</h3>
+            <button onclick="addToBasket('Xbox Series S', 299.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
         </div>
     </div>
+    <h2 id="cont">Контроллеры</h2>
+    <div class="brand">
+        <div class="listing" id="dsedge">
+            <img style="width: 360px;height: auto; margin: auto 0px;" src="https://gmedia.playstation.com/is/image/SIEPDC/dualsense-edge-listing-thumb-01-en-23aug22?$facebook$" alt="">
+            <div>
+            <h3>DualSense Edge</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$199.99</h3>
+            <button onclick="addToBasket('DualSense Edge', 199.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="dsense">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="some website stuffs/dsense.png" alt="">
+            <div>
+            <h3>DualSense 5</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$69.99</h3>
+            <button onclick="addToBasket('DualSense 5', 69.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="dshock4">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://koodoo.co.za/cdn/shop/products/PS4_DUALSHOCK_4_-Black_c8bb143f-fbdc-4da9-9cbd-16b5a15daeab_grande.png?v=1611766401" alt="">
+            <div>
+            <h3>DualShock 4</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$39.99</h3>
+            <button onclick="addToBasket('DualShock 4', 39.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="dshock3">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/PlayStation3-DualShock3.png" alt="">
+            <div>
+            <h3>DualShock 3</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$49.99</h3>
+            <button onclick="addToBasket('DualShock 3', 49.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="dshock2">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/PlayStation2-DualShock2.png/1200px-PlayStation2-DualShock2.png" alt="">
+            <div>
+            <h3>DualShock 2</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$139.99</h3>
+            <button onclick="addToBasket('DualShock 2', 139.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="dshock1">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/PSX-DualShock.png/2560px-PSX-DualShock.png" alt="">
+            <div>
+            <h3>DualShock 1</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$139.99</h3>
+            <button onclick="addToBasket('DualShock 1', 139.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="psportal">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://www.gamebuy.ru/sites/default/files/imagecache/screenshot_1280_accessorie/covers/playstation-portal-remote-player_main_cover.png" alt="">
+            <div>
+            <h3>PlayStation Portal</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$139.99</h3>
+            <button onclick="addToBasket('PlayStation Portal', 139.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xboxcont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://pngimg.com/d/xbox_PNG17512.png" alt="">
+            <div>
+            <h3>Xbox Original Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$89.99</h3>
+            <button onclick="addToBasket('Xbox Original Controller', 89.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xb360cont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Xbox-360-Wireless-Controller-White.png" alt="">
+            <div>
+            <h3>Xbox 360 Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$69.99</h3>
+            <button onclick="addToBasket('Xbox 360 Controller', 69.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbonecont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/steamworks_docs/english/xboxone_controller.png" alt="">
+            <div>
+            <h3>Xbox One Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$59.99</h3>
+            <button onclick="addToBasket('Xbox One Controller', 59.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbonescont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://a-power.com/app/uploads/2020/01/38271028_9567622432-1.png" alt="">
+            <div>
+            <h3>Xbox One S/X Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$49.99</h3>
+            <button onclick="addToBasket('Xbox One S/X Controller', 139.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbscont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://assets.xboxservices.com/assets/e9/63/e96370bf-ad68-4af8-82d6-2c980b75d0c0.png?n=Gen-9-Accessories_Merlin_Cross_Sell_408x376.png" alt="">
+            <div>
+            <h3>Xbox Series S/X Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$39.99</h3>
+            <button onclick="addToBasket('Xbox Series S/X Controller', 139.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="xbe2">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://assets.xboxservices.com/assets/92/6f/926f1ec2-236d-4067-bd90-5bb1b2420790.png?n=Accessories_Panes-Triptic-Small-1084-0_White-elite-series-2_353x353.png" alt="">
+            <div>
+            <h3>Xbox Elite Series 2</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$209.99</h3>
+            <button onclick="addToBasket('Xbox Elite Series 2', 209.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="jcon">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="some website stuffs/nintendo_switch_joy-con_pair_neon_red_neon_blue_wb-Photoroom.png-Photoroom.png" alt="">
+            <div>
+            <h3>Joy-Con</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$69.99</h3>
+            <button onclick="addToBasket('Joy-Con', 69.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="swpcont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://cdn.wikimg.net/en/splatoonwiki/images/4/40/Nintendo_Switch_Pro_Controller.png" alt="">
+            <div>
+            <h3>Switch Pro Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$59.99</h3>
+            <button onclick="addToBasket('Switch Pro Controller', 59.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="wiiupcont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="some website stuffs/Wii_U_-_Pro_Controller_29_01.webp" alt="">
+            <div>
+            <h3>Wii U Pro Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$49.99</h3>
+            <button onclick="addToBasket('Wii U Pro Controller', 49.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="wiirem">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Wiimote.png/788px-Wiimote.png?20170303191449" alt="">
+            <div>
+            <h3>Wii Remote</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$24.99</h3>
+            <button onclick="addToBasket('Wii Remote', 24.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="gcncont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/GameCube_controller.png/1280px-GameCube_controller.png" alt="">
+            <div>
+            <h3>Gamecube Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$59.99</h3>
+            <button onclick="addToBasket('Gamecube Controller', 59.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="n64cont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="some website stuffs/image-Photoroom.png-Photoroom (1).png" alt="">
+            <div>
+            <h3>Nintendo 64 Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$29.99</h3>
+            <button onclick="addToBasket('Nintendo 64 Controller', 29.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="snescont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="https://cc-client-assets.nyc3.cdn.digitaloceanspaces.com/photo/wiiplaygames/file/9530d910a94a11e79494cf6cb8c8fe8a/large/snes-controller.png" alt="">
+            <div>
+            <h3>SNES Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$149.99</h3>
+            <button onclick="addToBasket('SNES Controller', 149.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+        <div class="listing" id="nescont">
+            <img style="width: 230px;height: auto; margin: auto 0px;" src="some website stuffs/nesc.png" alt="">
+            <div>
+            <h3>NES Controller</h3>
+            <div style="display: flex; justify-content: center;">
+            <h3 class="price">$209.99</h3>
+            <button onclick="addToBasket('NES Controller', 209.99)" class="addtocart">В Корзину</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
     </main>
-    <div id="basketContainer">
+    <div style="display: none;" id="basketContainer">
         <div class="basket hidden" id="basket">
             <h2 style="width: 40%; margin: 5px">Корзина</h2>
             <p style="width: 40%; margin: 5px;">Товаров: <span id="totalItems">0</span></p>

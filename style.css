@@ -252,6 +252,7 @@ header input{
     max-width: 1115.2px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
 }
 .brand{
     display: flex;
